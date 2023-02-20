@@ -1,3 +1,33 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Codespaces
+Marketplace
+Explore
+ 
+@JaySea20 
+custom-cards
+/
+canvas-gauge-card
+Public
+Fork your own copy of custom-cards/canvas-gauge-card
+Code
+Issues
+18
+Pull requests
+Actions
+Security
+Insights
+canvas-gauge-card/src/canvas-gauge-card.ts /
+@Olen
+Olen Fix typo (#37)
+Latest commit 8e769e3 on Aug 14, 2020
+ History
+ 2 contributors
+@helto4real@Olen
+269 lines (246 sloc)  7.8 KB
+
 /*!
  * The MIT License (MIT)
  *
@@ -175,7 +205,6 @@ export class CanvasGaugeCard extends LitElement {
             : "transparent"} !important;
         }
         #cardroot {
-          width: ${this._gaugeWidth}px;
           height: calc(
             ${this._gaugeHeight}px +
               ${this._config.shadow_bottom ? this._config.shadow_bottom : 0}px
@@ -184,8 +213,7 @@ export class CanvasGaugeCard extends LitElement {
           margin: auto;
         }
         #container {
-          width: ${this._gaugeWidth}px;
-          height: ${this._gaugeHeight}px;
+          height: auto;
           position: relative;
           top: 0px;
           overflow: hidden;
@@ -217,16 +245,16 @@ export class CanvasGaugeCard extends LitElement {
       <div id="cardroot">
         <div
           id="container"
-          width=${this._gaugeWidth}
-          height=${this._gaugeHeight}
+          height= auto
         >
           <div
             id="innercontainer"
-            width=${this._gaugeWidth}
             height=${this._gaugeHeight}
             @click=${this.clickHandler}
           >
-            <canvas id="canvaselement"> </canvas>
+            <canvas id="canvaselement">
+				width="calc((100vw)/${this.grid-card-column-count})"
+			</canvas>
           </div>
         </div>
         <div id="shadow">
@@ -267,3 +295,18 @@ export class CanvasGaugeCard extends LitElement {
     return event;
   }
 }
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+canvas-gauge-card/canvas-gauge-card.ts at master · custom-cards/canvas-gauge-card
